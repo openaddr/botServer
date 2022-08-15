@@ -26,6 +26,7 @@ repositories {
 dependencies {
     implementation 'cn.hutool:hutool-all:5.8.5'
     implementation 'net.mamoe:mirai-core:2.12.1'
+    implementation 'org.springframework.boot:spring-boot-configuration-processor'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'

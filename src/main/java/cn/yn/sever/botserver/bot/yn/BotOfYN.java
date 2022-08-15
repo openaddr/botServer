@@ -9,9 +9,12 @@ import net.mamoe.mirai.message.data.MessageChainBuilder;
 import net.mamoe.mirai.message.data.QuoteReply;
 import net.mamoe.mirai.utils.BotConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.stereotype.Component;
 
 @Component
+//此注解的作用是：单元测试时不会加载此bean
+@ConditionalOnMissingBean(name = "org.springframework.boot.test.mock.mockito.MockitoPostProcessor")
 public class BotOfYN {
 
     @Autowired

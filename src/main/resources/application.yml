@@ -3,7 +3,4 @@ spring:
     name: botServer
 server:
   port: 4060
-bot:
-  yn:
-    loginId: 2357902824
-    loginPwd: y1475369
+
