@@ -10,17 +10,17 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.2.3'
     }
 }
-allprojects {
-    repositories {
-        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
-        maven{ url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
-    }
-}
 plugins {
     id 'org.springframework.boot' version '2.3.7.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.6.21'
+}
+allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    }
 }
 
 group = 'cn.yn.sever'
