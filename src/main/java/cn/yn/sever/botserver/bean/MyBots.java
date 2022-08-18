@@ -1,9 +1,9 @@
-package cn.yn.sever.botserver.service;
+package cn.yn.sever.botserver.bean;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.yn.sever.botserver.bean.ConfigBean;
 import cn.yn.sever.botserver.entity.QQ;
+import lombok.Data;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactory;
 import net.mamoe.mirai.utils.BotConfiguration;
@@ -13,23 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class BotsOfUs {
+@Data
+public class MyBots {
 
     private List<Bot> bots;
-    @Autowired
-    ConfigBean configBean;
-
-
-    public BotsOfUs(List<QQ> qqList) {
-    }
 
     /**
-     * 根据配置文件自动(批量)注入Bot
-     *
-     * @param configBean
+     * 根据所给的QQ集合自动(批量)注入Bot
+     * todo 多个QQ应该可以多线程登陆
      */
-    public BotsOfUs(ConfigBean configBean,List<QQ> qqList) {
-//        List<QQ> qqList = configBean.getBots().getYn();
+    public MyBots(List<QQ> qqList) {
         if (CollUtil.isNotEmpty(qqList)) {
             List<QQ> validQQList = qqList.stream().filter(ObjectUtil::isAllNotEmpty).collect(Collectors.toList());
             if (CollUtil.isNotEmpty(validQQList)) {

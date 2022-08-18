@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
-@Component
+//@Component
 //此注解的作用是：单元测试时不会加载此bean
 //@ConditionalOnMissingBean(name = "org.springframework.boot.test.mock.mockito.MockitoPostProcessor")
 public class BotsOfYN {
@@ -29,31 +29,30 @@ public class BotsOfYN {
     private List<Bot> bots;
     @Autowired
     ConfigBean configBean;
+    private List<QQ> qqList;
+
+    public void setQqList() {
+        this.qqList = configBean.getBots().getYn();
+    }
 
     /**
      * 根据配置文件自动(批量)注入Bot
-     * @param configBean
+     *
      */
-    public BotsOfYN(ConfigBean configBean) {
-        List<QQ> qqList = configBean.getBots().getYn();
-        if (CollUtil.isNotEmpty(qqList)){
+    public BotsOfYN() {
+        if (CollUtil.isNotEmpty(qqList)) {
             List<QQ> validQQList = qqList.stream().filter(ObjectUtil::isAllNotEmpty).collect(Collectors.toList());
-            if (CollUtil.isNotEmpty(validQQList)){
+            if (CollUtil.isNotEmpty(validQQList)) {
                 bots = new ArrayList<>(validQQList.size());
                 for (QQ qq : validQQList) {
-                    bots.add( BotFactory.INSTANCE.newBot(qq.getId(),qq.getPwd(),new BotConfiguration(){{
-                     fileBasedDeviceInfo();
+                    bots.add(BotFactory.INSTANCE.newBot(qq.getId(), qq.getPwd(), new BotConfiguration() {{
+                        fileBasedDeviceInfo();
                     }}));
                 }
             }
         }
-//        Bot bot = BotFactory.INSTANCE.newBot(Convert.toLong(), globalConst.getLoginPwd(), new BotConfiguration() {{
-//            fileBasedDeviceInfo();
-//        }});
-//        bot.login();
-//        afterLogin(bot);
-
     }
+
 
     public void afterLogin(Bot bot) {
         long yourQQNumber = 2413823382l;
