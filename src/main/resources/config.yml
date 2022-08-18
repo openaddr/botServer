@@ -1,6 +1,14 @@
-bot:
-    loginId: 2357902824
-    loginPwd: y1475369
-target-qq:
-  - id: 2413823382
+bots: #在这里配置你要登陆的QQ机器人,每个开发者的QQ机器人都是一个数组.
+  yn:
+  - id: 2357902824  #id类型为Long
+    pwd: y1475369   #pwd类型为String
+  ywh:
+  - id: 111111
+    pwd: 123abc
+  - id: 222222
+    pwd: 123abc
+targetQQ: #在这里配置一些QQ号,以供将来代码中调用.
+  - 2413823382
+  - 1151703750
+  - 834079325
 
