@@ -10,11 +10,17 @@ import net.mamoe.mirai.utils.BotConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
 public class MyBots {
+
+    public MyBots(){
+        System.out.println("");
+    }
+
 
     private List<Bot> bots;
 
@@ -27,6 +33,7 @@ public class MyBots {
             List<QQ> validQQList = qqList.stream().filter(ObjectUtil::isAllNotEmpty).collect(Collectors.toList());
             if (CollUtil.isNotEmpty(validQQList)) {
                 bots = new ArrayList<>(validQQList.size());
+//                List<Bot> safeBots = Collections.synchronizedList(bots);
                 for (QQ qq : validQQList) {
                     bots.add(BotFactory.INSTANCE.newBot(qq.getId(), qq.getPwd(), new BotConfiguration() {{
                         fileBasedDeviceInfo();

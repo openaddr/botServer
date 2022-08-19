@@ -8,21 +8,23 @@ import cn.yn.sever.botserver.bean.MyBots;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class GlobalConfig {
 
-    @Bean
+//    @Bean
     public BotsOfYN botsOfYN(ConfigBean configBean) {
         return new BotsOfYN(configBean.getBots().getYn());
     }
 
-    @Bean
+//    @Bean
     public BotsOfYWH botsOfYWH(ConfigBean configBean) {
         return new BotsOfYWH(configBean.getBots().getYwh());
     }
 
-    @Bean
+//    @Bean
     public ConfigBean getConfigBean() {
         return YamlUtil.loadByPath("config.yml", ConfigBean.class);
     }
+
+
 }
