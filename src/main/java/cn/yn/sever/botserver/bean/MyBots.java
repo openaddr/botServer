@@ -17,16 +17,11 @@ import java.util.stream.Collectors;
 @Data
 public class MyBots {
 
-    public MyBots(){
-        System.out.println("");
-    }
-
-
     private List<Bot> bots;
 
     /**
      * 根据所给的QQ集合自动(批量)注入Bot
-     * todo 多个QQ应该可以多线程登陆
+     * todo 多个QQ应该可以多线程登陆[目前做不到多账号登陆,似乎是父子线程问题]
      */
     public MyBots(List<QQ> qqList) {
         if (CollUtil.isNotEmpty(qqList)) {

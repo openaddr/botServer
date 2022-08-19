@@ -13,14 +13,5 @@ public class BotsOfYN extends MyBots{
     }
 
     public void allLogin(){
-        List<Bot> bots = super.getBots();
-        bots.get(0).login();
-        Iterator<Bot> iterator = bots.iterator();
-        while (iterator.hasNext()){
-
-            Bot next = iterator.next();
-            System.out.println(next);
-//            next.login();
-        }
     }
 }

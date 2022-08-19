@@ -5,13 +5,10 @@ import net.mamoe.mirai.Bot;
 
 import java.util.List;
 
-public class BotsOfYWH extends MyBots{
+public class BotsOfYWH extends MyBots {
     public BotsOfYWH(List<QQ> qqList) {
-
-        this.allLogin();
+        super(qqList);
     }
 
-    public void allLogin(){
-//        super.getBots().forEach(Bot::login);
-    }
+
 }

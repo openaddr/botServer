@@ -7,14 +7,14 @@ import net.mamoe.mirai.utils.BotConfiguration;
 public class Test02 {
 
     public static void main(String[] args) throws InterruptedException {
-        Thread thread = ThreadUtil.newThread(() -> {
-            BotFactory.INSTANCE.newBot(2159094392l, "y1475369", new BotConfiguration() {{
-                fileBasedDeviceInfo();
-            }}).login();
-        }, "Thread1", true);
-        thread.start();
-
-        thread.join();
+//        Thread thread = ThreadUtil.newThread(() -> {
+//            BotFactory.INSTANCE.newBot(2159094392l, "y1475369", new BotConfiguration() {{
+//                fileBasedDeviceInfo();
+//            }}).login();
+//        }, "Thread1", true);
+//        thread.start();
+//
+//        thread.join();
 
     }
 }

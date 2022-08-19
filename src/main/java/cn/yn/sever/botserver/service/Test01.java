@@ -1,21 +1,25 @@
 package cn.yn.sever.botserver.service;
 
 import cn.hutool.core.thread.ThreadUtil;
+import cn.yn.sever.botserver.bean.BotsOfYN;
+import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactory;
 import net.mamoe.mirai.utils.BotConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Test01 {
-    public static void main(String[] args) {
-//        BotFactory.INSTANCE.newBot(2166675797l, "y1475369", new BotConfiguration() {{
-//            fileBasedDeviceInfo();
-//        }}).login();
 
-        Thread thread2 = ThreadUtil.newThread(() -> {
-            while (true) {
+    BotsOfYN botsOfYN;
 
-                System.out.println("1");
-            }
-        }, "Thread2", true);
-        thread2.run();
+    public Test01(BotsOfYN botsOfYN) {
+        this.botsOfYN = botsOfYN;
+//        ThreadUtil.newThread(()->{
+//            System.out.println(botsOfYN.getBots());
+//        },"00").start();
+
+//        this.botsOfYN.getBots().get(1).login();
     }
+
 }
