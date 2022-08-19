@@ -1,1 +1,3 @@
 rootProject.name = 'botServer'
+include 'botOfYNServer'
+

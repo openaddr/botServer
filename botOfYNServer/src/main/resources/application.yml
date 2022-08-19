@@ -1,6 +1,6 @@
 spring:
   application:
-    name: botServer
+    name: botOfYNServer
 server:
   port: 4060
 
