@@ -18,7 +18,13 @@ public class BotListener {
             FriendMessageEvent friendMessageEvent = Convert.convert(FriendMessageEvent.class, event);
             Friend sender = friendMessageEvent.getSender();
             sender.sendMessage("You are "+ sender);
+
+
         }
+    }
+
+    public  void  messageHandler(Event event){
+
     }
 
 }
