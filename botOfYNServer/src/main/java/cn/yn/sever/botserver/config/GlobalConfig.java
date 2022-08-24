@@ -6,8 +6,6 @@ import cn.yn.sever.botserver.service.impl.BotListener;
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactory;
 import net.mamoe.mirai.event.Event;
-import net.mamoe.mirai.event.events.FriendMessageEvent;
-import net.mamoe.mirai.message.data.MessageChain;
 import net.mamoe.mirai.utils.BotConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -17,8 +15,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GlobalConfig {
 
-//    @Autowired
-//    BotListener botListener;
+    static BotListener botListener;
+
+    @Autowired
+    public void setBotListener(BotListener botListener) {
+       GlobalConfig.botListener = botListener;
+    }
+
     @Bean
     @ConditionalOnBean(BotListener.class)
     public Bot botsOfYN(ConfigBean configBean) {
@@ -27,7 +30,7 @@ public class GlobalConfig {
         }});
         bot.login();
         bot.getEventChannel().subscribeAlways(Event.class, event -> {
-            BotListener.messageListener(event);
+            botListener.messageListener(event);
         });
         return bot;
     }
