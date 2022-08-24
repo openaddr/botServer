@@ -1,4 +1,4 @@
-package cn.yn.sever.botserver.entity;
+package cn.yn.sever.botserver.bean;
 
 import lombok.Data;
 

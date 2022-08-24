@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: botOfYWHServer
+server:
+  port: 4070
+

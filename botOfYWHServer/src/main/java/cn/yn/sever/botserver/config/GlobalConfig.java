@@ -12,6 +12,10 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 自动配置类,
+ * 会在启动时自动注入一些类
+ */
 @Configuration
 public class GlobalConfig {
 
@@ -22,9 +26,14 @@ public class GlobalConfig {
        GlobalConfig.botListener = botListener;
     }
 
+    /**
+     * 自动注入Bot并登陆,随后被监听
+     * @param configBean
+     * @return
+     */
     @Bean
     @ConditionalOnBean(BotListener.class)
-    public Bot botOfYN(ConfigBean configBean) {
+    public Bot botOfYWH(ConfigBean configBean) {
         Bot bot = BotFactory.INSTANCE.newBot(configBean.getBotConfig().getId(), configBean.getBotConfig().getPwd(), new BotConfiguration() {{
             fileBasedDeviceInfo();
         }});
@@ -35,6 +44,10 @@ public class GlobalConfig {
         return bot;
     }
 
+    /**
+     * 自动注入配置类
+     * @return
+     */
     @Bean
     public ConfigBean getConfigBean() {
         return YamlUtil.loadByPath("config.yml", ConfigBean.class);
