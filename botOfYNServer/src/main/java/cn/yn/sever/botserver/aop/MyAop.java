@@ -1,6 +1,5 @@
 package cn.yn.sever.botserver.aop;
 
-import cn.hutool.json.JSONUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -22,8 +21,5 @@ public class MyAop {
     @Before("friendMessageEvent()")
     public void before(JoinPoint joinPoint){
         System.out.println("***********WARNING***********");
-        System.out.println(JSONUtil.toJsonStr(joinPoint));
     }
-
-
 }

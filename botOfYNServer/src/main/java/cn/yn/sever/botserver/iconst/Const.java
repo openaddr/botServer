@@ -2,7 +2,6 @@ package cn.yn.sever.botserver.iconst;
 
 import cn.yn.sever.botserver.annotation.FriendMsgHandler;
 import cn.yn.sever.botserver.annotation.GroupMsgHandler;
-import lombok.Data;
 import net.mamoe.mirai.event.Event;
 import net.mamoe.mirai.event.events.FriendMessageEvent;
 import net.mamoe.mirai.event.events.GroupMessageEvent;
@@ -20,8 +19,9 @@ public class Const {
         private Class<? extends Event> event;
         private Class<? extends Annotation> annotation;
 
-        EventHandler(Class<? extends Event> friendMessageEventClass, Class<? extends Annotation> friendMsgHandlerClass) {
-
+        EventHandler(Class<? extends Event> event, Class<? extends Annotation> annotation) {
+            this.event=event;
+            this.annotation=annotation;
         }
 
         public Class<? extends Event> getEvent() {

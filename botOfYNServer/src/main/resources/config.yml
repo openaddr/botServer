@@ -1,6 +1,6 @@
 botConfig: #在这里配置你要登陆的QQ机器人,每个开发者的QQ机器人都是一个数组.
-#  - id: 2357902824  #id类型为Long
-#    pwd: y1475369   #pwd类型为String
+#  id: 2357902824  #id类型为Long
+#  pwd: y1475369   #pwd类型为String
   id: 2166675797
   pwd: y1475369
 #  - id: 2159094392

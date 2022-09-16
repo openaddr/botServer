@@ -4,7 +4,7 @@ buildscript {
         mavenLocal()
         maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
@@ -19,7 +19,7 @@ plugins {
 allprojects {
     repositories {
         maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
-        maven{ url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
     }
 }
 
@@ -59,8 +59,9 @@ subprojects {
         set('springCloudVersion', "Hoxton.SR9")
     }
     dependencies {
-        implementation 'net.mamoe:mirai-core:2.12.1'
-        implementation 'cn.hutool:hutool-all:5.8.5'
+//        implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.2'
+        implementation 'net.mamoe:mirai-core:2.12.3'
+        implementation 'cn.hutool:hutool-all:5.8.7'
         implementation 'org.springframework.boot:spring-boot-starter-web'
 //        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
 //        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'

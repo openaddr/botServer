@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class GroupMessageHandler {
 
-
     @GroupMsgHandler
     public void hello(GroupMessageEvent event) {
         Group group = event.getGroup();
