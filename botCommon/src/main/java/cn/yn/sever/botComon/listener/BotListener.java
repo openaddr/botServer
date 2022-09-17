@@ -1,16 +1,12 @@
 package cn.yn.sever.botComon.listener;
 
-import cn.hutool.core.annotation.AnnotationUtil;
-import cn.hutool.core.convert.Convert;
 import cn.hutool.core.lang.reflect.MethodHandleUtil;
 import cn.hutool.core.util.ClassUtil;
 import cn.yn.sever.botComon.iconst.Const;
 import net.mamoe.mirai.event.Event;
-import net.mamoe.mirai.event.events.FriendEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
@@ -53,38 +49,9 @@ public class BotListener {
                 List<Method> methods = eventMethodMap.get(eventHandler.getEvent());
                 //对方法进行遍历执行
                 for (Method method : methods) {
-                    //判断改方法是否应该执行
-//                    boolean doIt = isDoIt(event, eventHandler, method);
-//                    if (doIt) {
                     MethodHandleUtil.invoke(applicationContext.getBean(method.getDeclaringClass()), method, event);
-//                    }
                 }
             }
         }
     }
-//
-//    /**
-//     * todo
-//     *  做判断
-//     *
-//     * @param event
-//     * @param eventHandler
-//     * @param method
-//     * @return
-//     */
-//    private boolean isDoIt(Event event, Const.EventHandler eventHandler, Method method) {
-//        boolean doIt = false;
-//        if (event instanceof FriendEvent) {
-//            FriendEvent friendEvent = (FriendEvent) event;
-//            Long id = AnnotationUtil.getAnnotationValue(method, eventHandler.getAnnotation(), "id");
-//            if (friendEvent.getFriend().getId() == id) {
-//                doIt = true;
-//            }
-//        } else {
-//            doIt = true;
-//        }
-//        return doIt;
-//    }
-
-
 }

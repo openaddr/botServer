@@ -1,6 +1,7 @@
 package cn.yn.sever.botserver.config;
 
 import cn.hutool.setting.yaml.YamlUtil;
+import cn.yn.sever.botComon.aop.MyAop;
 import cn.yn.sever.botComon.bean.ConfigBean;
 import cn.yn.sever.botComon.listener.BotListener;
 import net.mamoe.mirai.Bot;
@@ -17,9 +18,22 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class GlobalConfig {
+    /**
+     * 监听器
+     * @return
+     */
     @Bean
     public BotListener botListener() {
         return new BotListener();
+    }
+
+    /**
+     * 切面增强
+     * @return
+     */
+    @Bean
+    public MyAop myAop(){
+        return new MyAop();
     }
 
     /**

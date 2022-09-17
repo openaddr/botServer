@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 /**
  * 群消息处理器
  * 可以在这里编写处理群消息的方法
+ * 在收到群组消息后
+ * 所有被@GroupMsgHandler标记的方法都会执行
  */
 @Component
 public class GroupMessageHandler {
