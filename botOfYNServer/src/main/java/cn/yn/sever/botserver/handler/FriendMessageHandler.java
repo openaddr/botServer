@@ -10,11 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class FriendMessageHandler {
 
-    @FriendMsgHandler public void hello(FriendMessageEvent event) {
-        event.getFriend().sendMessage("you are "+ event.getFriend().getId());
+    @FriendMsgHandler(2413823382L)
+    public void hello(FriendMessageEvent event) {
+        event.getFriend().sendMessage("you are " + event.getFriend().getId());
     }
 
-    @FriendMsgHandler
+    @FriendMsgHandler(2357902824L)
     public void hello1(FriendMessageEvent event) {
         System.out.println("You are test friendMsg");
     }

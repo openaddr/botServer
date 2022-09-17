@@ -1,20 +1,26 @@
-# 工程简介
 
 ### 注解驱动开发:
 
 ##### 支持注解:
 
     @FriendMsgHandler
+    作用:
+        接受到好友消息事件时,自动执行被此注解标记的方法,如果有多个方法被标记,那么这些方法会依次执行
     @GroupMsgHandler
-
+    作用:
+        接受到群消息事件时,自动执行被此注解标记的方法,如果有多个方法被标记,那么这些方法会依次执行
 ##### 使用方式
+    @FriendMsgHandler   
+    必须:
+        1.创建一个类,并交给Spring管理(即标记@Component/@Service等注解即可)
+        2.在此类内创建一个方法,参数类型为FriendMessageEvent
+        3.给此方法标记上@FriendMsgHandler注解
+    可选:
+        此注解可以接受一个参数,类型为long.如果传入了参数,则只有当好友消息来源的QQ号等于所传的long值时,被标记的方法才会执行
+    @GroupMsgHandler   
+    必须:
+        1.创建一个类,并交给Spring管理(即标记@Component/@Service等注解即可)
+        2.在此类内创建一个方法,参数类型为GroupMessageEvent
+        3.给此方法标记上@GroupMsgHandler注解
 
-    1.将处理类交给Spring接管(加上@Component,@Service等注解即可)
-    2.在处理类的某些方法上加上@FriendMsgHandler,并且保证方法的参数为FriendMessageEvent
-
-    完成以上步骤,机器人收到好友消息事件时,就会自动调用这些方法.
-    群组消息同理.
-    注意,如果有多个方法都标注了这个注解,那么当事件触发时,这些方法会依次执行,至于执行顺序,我也不知道
-
-# 延伸阅读
 
