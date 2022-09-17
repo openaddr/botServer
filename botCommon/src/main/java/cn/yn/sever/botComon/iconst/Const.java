@@ -1,7 +1,7 @@
-package cn.yn.sever.botserver.iconst;
+package cn.yn.sever.botComon.iconst;
 
-import cn.yn.sever.botserver.annotation.FriendMsgHandler;
-import cn.yn.sever.botserver.annotation.GroupMsgHandler;
+import cn.yn.sever.botComon.annotation.FriendMsgHandler;
+import cn.yn.sever.botComon.annotation.GroupMsgHandler;
 import net.mamoe.mirai.event.Event;
 import net.mamoe.mirai.event.events.FriendMessageEvent;
 import net.mamoe.mirai.event.events.GroupMessageEvent;
@@ -9,7 +9,6 @@ import net.mamoe.mirai.event.events.GroupMessageEvent;
 import java.lang.annotation.Annotation;
 
 public class Const {
-
 
     public enum EventHandler {
 

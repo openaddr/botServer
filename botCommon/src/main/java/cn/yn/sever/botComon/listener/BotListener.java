@@ -1,37 +1,21 @@
-package cn.yn.sever.botserver.listener;
+package cn.yn.sever.botComon.listener;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.convert.Convert;
 import cn.hutool.core.lang.reflect.MethodHandleUtil;
 import cn.hutool.core.util.ClassUtil;
-import cn.hutool.json.JSONUtil;
-import cn.yn.sever.botserver.handler.FriendMessageHandler;
-import cn.yn.sever.botserver.handler.GroupMessageHandler;
-import cn.yn.sever.botserver.iconst.Const;
+import cn.yn.sever.botComon.iconst.Const;
 import net.mamoe.mirai.event.Event;
-import net.mamoe.mirai.event.events.FriendMessageEvent;
-import net.mamoe.mirai.event.events.GroupMessageEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Component;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-@Component
-//@ConditionalOnBean(FriendMessageHandler.class)
 public class BotListener {
     @Autowired
     ApplicationContext applicationContext;
-
-    @Autowired
-    FriendMessageHandler friendMessageHandler;
-    @Autowired
-    GroupMessageHandler groupMessageHandler;
 
     public static Map<Class<? extends Event>, List<Method>> eventMethodMap = new HashMap<>();
 

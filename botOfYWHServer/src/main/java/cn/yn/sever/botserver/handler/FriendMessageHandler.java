@@ -1,5 +1,6 @@
 package cn.yn.sever.botserver.handler;
 
+import cn.yn.sever.botComon.annotation.FriendMsgHandler;
 import net.mamoe.mirai.contact.Friend;
 import net.mamoe.mirai.event.events.FriendMessageEvent;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class FriendMessageHandler {
+    @FriendMsgHandler
     public void hello(FriendMessageEvent event) {
         Friend sender = event.getSender();
         sender.sendMessage("You are " + sender);

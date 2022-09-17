@@ -4,13 +4,15 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
 @Component
+@EnableAspectJAutoProxy
 @Aspect
 public class MyAop {
 
-    @Pointcut(value = "@annotation(cn.yn.sever.botserver.annotation.FriendMsgHandler)")
+    @Pointcut(value = "@annotation(cn.yn.sever.botComon.annotation.FriendMsgHandler)")
     public void friendMessageEvent(){
     }
 

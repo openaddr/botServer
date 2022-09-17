@@ -1,10 +1,9 @@
-package cn.yn.sever.botserver.annotation;
+package cn.yn.sever.botComon.annotation;
 
-import org.springframework.stereotype.Component;
 
 import java.lang.annotation.*;
 
-@Component
+
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

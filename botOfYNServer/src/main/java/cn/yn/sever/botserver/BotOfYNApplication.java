@@ -8,7 +8,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import java.util.concurrent.ExecutionException;
 
 
-@EnableAspectJAutoProxy
 @SpringBootApplication
 public class BotOfYNApplication {
 

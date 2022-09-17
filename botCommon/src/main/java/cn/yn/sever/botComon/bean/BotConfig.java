@@ -1,4 +1,4 @@
-package cn.yn.sever.botserver.bean;
+package cn.yn.sever.botComon.bean;
 
 import lombok.Data;
 

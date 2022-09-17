@@ -1,9 +1,7 @@
 package cn.yn.sever.botserver.handler;
 
-import cn.yn.sever.botserver.annotation.FriendMsgHandler;
-import net.mamoe.mirai.Bot;
+import cn.yn.sever.botComon.annotation.FriendMsgHandler;
 import net.mamoe.mirai.event.events.FriendMessageEvent;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,11 +9,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class FriendMessageHandler {
-    @Autowired
-    Bot bot;
 
-    @FriendMsgHandler
-    public void hello(FriendMessageEvent event) {
+    @FriendMsgHandler public void hello(FriendMessageEvent event) {
         event.getFriend().sendMessage("you are "+ event.getFriend().getId());
     }
 

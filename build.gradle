@@ -1,30 +1,25 @@
-buildscript {
-    repositories {
-        //先从本地加载
-        mavenLocal()
-        maven { url 'https://maven.aliyun.com/repository/central' }
-        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
-    }
-}
 plugins {
     id 'org.springframework.boot' version '2.3.7.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.6.21'
 }
+group = 'cn.yn.server'
+version = '0.0.1-SNAPSHOT'
 allprojects {
     repositories {
-        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/spring/' }
+        maven { url 'https://maven.aliyun.com/repository/central/' }
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+        maven { url 'https://maven.aliyun.com/repository/spring-plugin/' }
+        mavenLocal()
+        mavenCentral()
     }
 }
 
-group = 'cn.yn.server'
-version = '0.0.1-SNAPSHOT'
+
 sourceCompatibility = '1.8'
 
 configurations {
@@ -37,9 +32,6 @@ configurations {
     }
 }
 
-repositories {
-    mavenCentral()
-}
 
 subprojects {
     apply plugin: 'java'
@@ -59,12 +51,9 @@ subprojects {
         set('springCloudVersion', "Hoxton.SR9")
     }
     dependencies {
-//        implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.2'
         implementation 'net.mamoe:mirai-core:2.12.3'
         implementation 'cn.hutool:hutool-all:5.8.7'
         implementation 'org.springframework.boot:spring-boot-starter-web'
-//        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
-//        implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
         implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
         compileOnly 'org.projectlombok:lombok'
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
